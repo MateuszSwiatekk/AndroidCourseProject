@@ -125,7 +125,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun yesClicked(view: View){
-        val intent=Intent(this,ProductActivity::class.java)
+        val intent=Intent(this,ProductActivity::class.java).apply {
+            putExtra("Product",findViewById<TextView>(R.id.scanText).text)
+        }
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
 }
