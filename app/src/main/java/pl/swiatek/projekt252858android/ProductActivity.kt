@@ -13,7 +13,9 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
         Toast.makeText(applicationContext,"New activity",Toast.LENGTH_SHORT).show()
         val productName=findViewById<TextView>(R.id.productName)
+        val productPrice=findViewById<TextView>(R.id.productPrice)
         productName.text=intent.getStringExtra("Product")
+        productPrice.text=intent.getStringExtra("Price")
     }
 
     override fun onBackPressed() {

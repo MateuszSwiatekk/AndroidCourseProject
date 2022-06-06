@@ -25,16 +25,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var helper=DBHelper(applicationContext)
+        var db=helper.readableDatabase
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
         val productText=findViewById<TextView>(R.id.scanText)
         val questionText=findViewById<TextView>(R.id.questionText)
         val yesButton=findViewById<Button>(R.id.yesButton)
         val noButton=findViewById<Button>(R.id.noButton)
-
+        val addProduct=findViewById<Button>(R.id.addProduct)
         questionText.visibility= View.INVISIBLE
         yesButton.visibility= View.INVISIBLE
         noButton.visibility= View.INVISIBLE
+        addProduct.visibility=View.INVISIBLE
+
 
         getPermissions()
         codeScanner = CodeScanner(this, scannerView)
@@ -51,11 +54,22 @@ class MainActivity : AppCompatActivity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                //Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                productText.text=it.text
-                questionText.visibility= View.VISIBLE
-                yesButton.visibility= View.VISIBLE
-                noButton.visibility= View.VISIBLE
+                var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE CODE ="+it.text,null)
+                if(query.moveToNext()) {
+                    var description=query.getString(2)
+                    productText.text=description
+                }
+                if(query.count>0) {
+                    questionText.visibility = View.VISIBLE
+                    yesButton.visibility = View.VISIBLE
+                    noButton.visibility = View.VISIBLE
+                }else{
+                    productText.text="Product not found. Do you want to add it?"
+                    questionText.visibility = View.INVISIBLE
+                    yesButton.visibility = View.INVISIBLE
+                    noButton.visibility = View.INVISIBLE
+                    addProduct.visibility=View.VISIBLE
+                }
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
@@ -68,6 +82,10 @@ class MainActivity : AppCompatActivity() {
 
         scannerView.setOnClickListener {
             codeScanner.startPreview()
+            questionText.visibility = View.INVISIBLE
+            yesButton.visibility = View.INVISIBLE
+            noButton.visibility = View.INVISIBLE
+            addProduct.visibility=View.INVISIBLE
             productText.text="Scan something ..."
         }
     }
@@ -125,10 +143,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun yesClicked(view: View){
-        val intent=Intent(this,ProductActivity::class.java).apply {
-            putExtra("Product",findViewById<TextView>(R.id.scanText).text)
+        var helper=DBHelper(applicationContext)
+        var db=helper.readableDatabase
+        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+findViewById<TextView>(R.id.scanText).text+"'",null)
+        if(query.moveToNext()) {
+            var product = query.getString(2)
+            var price=query.getString(3)
+            val intent=Intent(this,ProductActivity::class.java).apply {
+                putExtra("Product",product.toString())
+                putExtra("Price",price)
+            }
+            startActivity(intent)
         }
-        startActivity(intent)
     }
 
     override fun onBackPressed() {

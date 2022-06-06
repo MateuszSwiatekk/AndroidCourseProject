@@ -10,8 +10,13 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        val detailsText=findViewById<TextView>(R.id.detailsText)
-        detailsText.text=intent.getStringExtra("Details")
+
+        val detailsNameText=findViewById<TextView>(R.id.detailsNameText)
+        val data=intent.getStringExtra("Details")
+        detailsNameText.text=data
+
+
+
     }
 
     fun scanMoreClicked(view: View){
