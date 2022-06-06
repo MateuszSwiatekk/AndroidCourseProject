@@ -25,10 +25,16 @@ class ProductActivity : AppCompatActivity() {
     }
 
     fun detailsClicked(view: View){
-        val intent=Intent(this,DetailsActivity::class.java).apply {
-            putExtra("Details","Detaliki")
+        var helper=DBHelper(applicationContext)
+        var db=helper.readableDatabase
+        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+findViewById<TextView>(R.id.productName).text+"'",null)
+        if(query.moveToNext()) {
+            var detailsId = query.getString(4)
+            val intent = Intent(this, DetailsActivity::class.java).apply {
+                putExtra("Details", detailsId)
+            }
+            startActivity(intent)
         }
-        startActivity(intent)
     }
 
 }

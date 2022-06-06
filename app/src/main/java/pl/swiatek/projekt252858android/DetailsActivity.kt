@@ -11,11 +11,20 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        val detailsNameText=findViewById<TextView>(R.id.detailsNameText)
-        val data=intent.getStringExtra("Details")
-        detailsNameText.text=data
+        val detailsId=intent.getStringExtra("Details")
 
+        var helper=DBHelper(applicationContext)
+        var db=helper.readableDatabase
+        var query=db.rawQuery("SELECT * FROM DETAILS WHERE DETAILSID = "+detailsId,null)
+        if(query.moveToNext()) {
+            var country = query.getString(1)
+            var kcal=query.getString(2)
+            val detailsNameText=findViewById<TextView>(R.id.detailsNameText)
+            val detailsCountryText=findViewById<TextView>(R.id.detailsPriceText)
+            detailsNameText.text=kcal+" Kcal"
+            detailsCountryText.text="Kraj: "+country
 
+        }
 
     }
 
