@@ -21,7 +21,7 @@ private const val CAMERA_REQUEST_CODE=101
 
 class MainActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
-
+    private lateinit var code:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
+                code=it.text
                 var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE CODE ="+it.text,null)
                 if(query.moveToNext()) {
                     var description=query.getString(2)
@@ -160,6 +161,15 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
+    }
+
+    fun addClick(view: View){
+        findViewById<Button>(R.id.addProduct).visibility=View.INVISIBLE
+        findViewById<TextView>(R.id.scanText).text="Scan Something..."
+        val intent=Intent(this,AddActivity::class.java).apply {
+            putExtra("code",code)
+        }
+        startActivity(intent)
     }
 
 }

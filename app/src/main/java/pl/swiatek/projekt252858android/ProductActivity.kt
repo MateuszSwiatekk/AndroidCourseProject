@@ -29,12 +29,18 @@ class ProductActivity : AppCompatActivity() {
         var db=helper.readableDatabase
         var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+findViewById<TextView>(R.id.productName).text+"'",null)
         if(query.moveToNext()) {
-            var detailsId = query.getString(4)
+            var detailsId = query.getString(0)
             val intent = Intent(this, DetailsActivity::class.java).apply {
                 putExtra("Details", detailsId)
             }
             startActivity(intent)
         }
+    }
+
+    fun editPriceClicked(view: View){
+        val intent=Intent(this,EditPriceActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 }

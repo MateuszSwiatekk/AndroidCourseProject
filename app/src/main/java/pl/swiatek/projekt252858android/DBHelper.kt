@@ -4,12 +4,12 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DBHelper(context: Context): SQLiteOpenHelper(context,"PRODUCTSDB",null,3) {
+class DBHelper(context: Context): SQLiteOpenHelper(context,"PRODUCTSDB",null,5) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE PRODUCTS(PRODUCTID INTEGER PRIMARY KEY AUTOINCREMENT,CODE TEXT,NAME TEXT, PRICE REAL,DETAILSID INTEGER)")
-        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE,DETAILSID) VALUES ('1','Chlebek',2.99,1)")
-        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE,DETAILSID) VALUES ('2','Bułka',0.99,2)")
-        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE,DETAILSID) VALUES ('3','Kanapka z boczkiem',6.99,3)")
+        db?.execSQL("CREATE TABLE PRODUCTS(PRODUCTID INTEGER PRIMARY KEY AUTOINCREMENT,CODE TEXT,NAME TEXT, PRICE REAL)")
+        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE) VALUES ('1','Chlebek',2.99)")
+        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE) VALUES ('2','Bułka',0.99)")
+        db?.execSQL("INSERT INTO PRODUCTS(CODE,NAME, PRICE) VALUES ('3','Kanapka z boczkiem',6.99)")
 
         db?.execSQL("CREATE TABLE DETAILS(DETAILSID INTEGER PRIMARY KEY AUTOINCREMENT,COUNTRY TEXT,KCAL INTEGER)")
         db?.execSQL("INSERT INTO DETAILS(COUNTRY, KCAL) VALUES ('Polska',412)")

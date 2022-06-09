@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt252858Android">
         <activity
+            android:name=".EditPriceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailsActivity"
             android:exported="false" />
         <activity
