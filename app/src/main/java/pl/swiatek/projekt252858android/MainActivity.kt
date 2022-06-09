@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             yesButton.visibility = View.INVISIBLE
             noButton.visibility = View.INVISIBLE
             addProduct.visibility=View.INVISIBLE
-            productText.text="Scan something ..."
+            productText.text="Scanning ..."
         }
     }
 
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Camera permissions are necessary to use this app!",Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(applicationContext,"Permissions granted",Toast.LENGTH_SHORT).show()
-                    productText.text="Scan something ..."
+                    productText.text="Scanning ..."
 
                 }
             }
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
         codeScanner.startPreview()
 
-        productText.text="Scan something ..."
+        productText.text="Scanning ..."
         questionText.visibility= View.INVISIBLE
         yesButton.visibility= View.INVISIBLE
         noButton.visibility= View.INVISIBLE
@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
 
     fun addClick(view: View){
         findViewById<Button>(R.id.addProduct).visibility=View.INVISIBLE
-        findViewById<TextView>(R.id.scanText).text="Scan Something..."
+        findViewById<TextView>(R.id.scanText).text="Scanning..."
         val intent=Intent(this,AddActivity::class.java).apply {
             putExtra("code",code)
         }

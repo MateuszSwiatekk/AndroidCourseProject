@@ -12,15 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt252858Android">
         <activity
+            android:orientation="vertical"
             android:name=".EditPriceActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="nosensor"/>
         <activity
+            android:orientation="vertical"
             android:name=".AddActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="nosensor"/>
         <activity
+            android:screenOrientation="nosensor"
+            android:orientation="vertical"
             android:name=".DetailsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="nosensor"
+            android:orientation="vertical"
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
