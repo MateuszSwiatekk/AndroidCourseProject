@@ -10,7 +10,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-
+        supportActionBar?.hide()
         val detailsId=intent.getStringExtra("Details")
 
         var helper=DBHelper(applicationContext)

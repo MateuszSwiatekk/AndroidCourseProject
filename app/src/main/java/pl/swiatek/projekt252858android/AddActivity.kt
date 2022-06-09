@@ -11,6 +11,7 @@ class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
+        supportActionBar?.hide()
         //Toast.makeText(applicationContext,intent.getStringExtra("code"),Toast.LENGTH_SHORT).show()
     }
     fun addToDatabaseClick(view: View){

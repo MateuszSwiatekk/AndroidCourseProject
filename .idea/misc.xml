@@ -5,10 +5,14 @@
       <map>
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.124" />
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.124" />
+        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout-normal-land/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout-normal-square/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout-small/activity_main.xml" value="0.775" />
+        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout-small/activity_main_small.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_add.xml" value="0.136" />
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_details.xml" value="0.2" />
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_edit_price.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_main.xml" value="0.536" />
         <entry key="..\:/Users/msswi/AndroidStudioProjects/Projekt252858Android/app/src/main/res/layout/activity_product.xml" value="0.2" />
       </map>
     </option>

@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         app:autoFocusButtonVisible="false"
         app:flashButtonVisible="false"
-        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:maskColor="#6C000000" />
@@ -35,9 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Is this the product you are trying to scan?"
-        android:textSize="12sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scanText"
         app:layout_constraintVertical_bias="0.0" />
@@ -72,6 +73,7 @@
         android:onClick="addClick"
         android:text="ADD"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
@@ -79,11 +81,10 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:text="Product List"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@
         android:gravity="fill_horizontal"
         android:text="Scanning..."
         android:textColor="@android:color/black"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scanner_view" />
@@ -35,55 +36,62 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Is this the product you are trying to scan?"
-        android:textSize="12sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scanText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.029" />
 
     <Button
         android:id="@+id/yesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="195dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="56dp"
         android:onClick="yesClicked"
         android:text="YES"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/noButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="144dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="76dp"
         android:onClick="noClicked"
         android:text="NO"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/addProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="174dp"
+        android:layout_height="126dp"
+        android:layout_marginBottom="36dp"
         android:onClick="addClick"
         android:text="ADD"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="248dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="60dp"
         android:text="Product List"
+        android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

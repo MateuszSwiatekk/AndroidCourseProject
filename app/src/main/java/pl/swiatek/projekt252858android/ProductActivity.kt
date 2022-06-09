@@ -11,6 +11,7 @@ class ProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
+        supportActionBar?.hide()
         Toast.makeText(applicationContext,"New activity",Toast.LENGTH_SHORT).show()
         val productName=findViewById<TextView>(R.id.productName)
         val productPrice=findViewById<TextView>(R.id.productPrice)

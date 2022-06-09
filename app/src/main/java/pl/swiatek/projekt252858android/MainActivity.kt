@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
         var helper=DBHelper(applicationContext)
         var db=helper.readableDatabase
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         val yesButton=findViewById<Button>(R.id.yesButton)
         val noButton=findViewById<Button>(R.id.noButton)
         val addProduct=findViewById<Button>(R.id.addProduct)
+        val productsList=findViewById<Button>(R.id.button5)
+        productsList.visibility=View.VISIBLE
         questionText.visibility= View.INVISIBLE
         yesButton.visibility= View.INVISIBLE
         noButton.visibility= View.INVISIBLE
