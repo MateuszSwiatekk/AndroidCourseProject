@@ -22,6 +22,13 @@ private const val CAMERA_REQUEST_CODE=101
 class MainActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
     private lateinit var code:String
+    private lateinit var productText: TextView
+    private lateinit var questionText: TextView
+    private lateinit var yesButton: Button
+    private lateinit var noButton: Button
+    private lateinit var addProduct:Button
+    private lateinit var productsList:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,12 +36,14 @@ class MainActivity : AppCompatActivity() {
         var helper=DBHelper(applicationContext)
         var db=helper.readableDatabase
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
-        val productText=findViewById<TextView>(R.id.scanText)
-        val questionText=findViewById<TextView>(R.id.questionText)
-        val yesButton=findViewById<Button>(R.id.yesButton)
-        val noButton=findViewById<Button>(R.id.noButton)
-        val addProduct=findViewById<Button>(R.id.addProduct)
-        val productsList=findViewById<Button>(R.id.button5)
+
+        productText=findViewById<TextView>(R.id.scanText)
+        questionText=findViewById<TextView>(R.id.questionText)
+        yesButton=findViewById<Button>(R.id.yesButton)
+        noButton=findViewById<Button>(R.id.noButton)
+        addProduct=findViewById<Button>(R.id.addProduct)
+        productsList=findViewById<Button>(R.id.button5)
+
         productsList.visibility=View.VISIBLE
         questionText.visibility= View.INVISIBLE
         yesButton.visibility= View.INVISIBLE
@@ -79,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
             runOnUiThread {
                 //Toast.makeText(this, "Camera initialization error: ${it.message}",
-                  //  Toast.LENGTH_LONG).show()\
+                  //  Toast.LENGTH_LONG).show()
                 productText.text="Camera initialization error: "+it.message
             }
         }
@@ -149,7 +158,7 @@ class MainActivity : AppCompatActivity() {
     fun yesClicked(view: View){
         var helper=DBHelper(applicationContext)
         var db=helper.readableDatabase
-        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+findViewById<TextView>(R.id.scanText).text+"'",null)
+        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+productText.text+"'",null)
         if(query.moveToNext()) {
             var product = query.getString(2)
             var price=query.getString(3)
@@ -172,6 +181,11 @@ class MainActivity : AppCompatActivity() {
         val intent=Intent(this,AddActivity::class.java).apply {
             putExtra("code",code)
         }
+        startActivity(intent)
+    }
+
+    fun productListClick(view: View){
+        val intent=Intent(this,ProductListActivity::class.java)
         startActivity(intent)
     }
 

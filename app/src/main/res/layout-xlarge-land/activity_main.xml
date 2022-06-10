@@ -58,8 +58,8 @@
 
     <Button
         android:id="@+id/noButton"
-        android:layout_width="144dp"
-        android:layout_height="102dp"
+        android:layout_width="195dp"
+        android:layout_height="134dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="76dp"
         android:onClick="noClicked"
@@ -70,22 +70,23 @@
 
     <Button
         android:id="@+id/addProduct"
-        android:layout_width="174dp"
-        android:layout_height="126dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="195dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="24dp"
         android:onClick="addClick"
         android:text="ADD"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="248dp"
         android:layout_height="103dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="52dp"
+        android:onClick="productListClick"
         android:text="Product List"
         android:textSize="30sp"
         android:visibility="visible"

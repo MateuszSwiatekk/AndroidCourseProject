@@ -46,8 +46,8 @@
 
     <Button
         android:id="@+id/yesButton"
-        android:layout_width="228dp"
-        android:layout_height="186dp"
+        android:layout_width="178dp"
+        android:layout_height="178dp"
         android:layout_marginStart="92dp"
         android:layout_marginTop="56dp"
         android:onClick="yesClicked"
@@ -58,8 +58,8 @@
 
     <Button
         android:id="@+id/noButton"
-        android:layout_width="218dp"
-        android:layout_height="196dp"
+        android:layout_width="178dp"
+        android:layout_height="178dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="64dp"
         android:onClick="noClicked"
@@ -86,6 +86,7 @@
         android:layout_width="254dp"
         android:layout_height="107dp"
         android:layout_marginBottom="120dp"
+        android:onClick="productListClick"
         android:text="Product List"
         android:textSize="30sp"
         android:visibility="visible"

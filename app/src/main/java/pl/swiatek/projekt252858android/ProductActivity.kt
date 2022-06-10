@@ -8,12 +8,12 @@ import android.widget.TextView
 import android.widget.Toast
 
 class ProductActivity : AppCompatActivity() {
+    private lateinit var productName:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
         supportActionBar?.hide()
-        Toast.makeText(applicationContext,"New activity",Toast.LENGTH_SHORT).show()
-        val productName=findViewById<TextView>(R.id.productName)
+        productName=findViewById<TextView>(R.id.productName)
         val productPrice=findViewById<TextView>(R.id.productPrice)
         productName.text=intent.getStringExtra("Product")
         productPrice.text=intent.getStringExtra("Price")
@@ -28,7 +28,7 @@ class ProductActivity : AppCompatActivity() {
     fun detailsClicked(view: View){
         var helper=DBHelper(applicationContext)
         var db=helper.readableDatabase
-        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+findViewById<TextView>(R.id.productName).text+"'",null)
+        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+productName.text+"'",null)
         if(query.moveToNext()) {
             var detailsId = query.getString(0)
             val intent = Intent(this, DetailsActivity::class.java).apply {
@@ -39,9 +39,15 @@ class ProductActivity : AppCompatActivity() {
     }
 
     fun editPriceClicked(view: View){
-        val intent=Intent(this,EditPriceActivity::class.java)
-        startActivity(intent)
-        finish()
+        var helper=DBHelper(applicationContext)
+        var db=helper.readableDatabase
+        var query=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME = '"+productName.text+"'",null)
+        if(query.moveToNext()) {
+            val intent = Intent(this, EditPriceActivity::class.java).apply {
+                putExtra("id",query.getString(0))
+            }
+            startActivity(intent)
+            finish()
+        }
     }
-
 }
