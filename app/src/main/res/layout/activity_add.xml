@@ -22,12 +22,12 @@
         android:id="@+id/productCountryAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Country Name"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productPriceAdd" />
 
     <EditText
@@ -35,12 +35,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:hint="Kcal"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productCountryAdd" />
 
     <Button
@@ -59,12 +58,12 @@
         android:id="@+id/productPriceAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:hint="Price"
         android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productNameAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

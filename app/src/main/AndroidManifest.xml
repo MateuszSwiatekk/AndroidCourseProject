@@ -13,7 +13,9 @@
         android:theme="@style/Theme.Projekt252858Android">
         <activity
             android:name=".ProductListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:orientation="vertical"
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".EditPriceActivity"
             android:exported="false"
