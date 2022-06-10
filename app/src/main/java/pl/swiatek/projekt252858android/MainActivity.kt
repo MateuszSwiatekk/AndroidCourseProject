@@ -185,8 +185,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun productListClick(view: View){
+        productText.text="Scanning..."
+        yesButton.visibility= View.INVISIBLE
+        noButton.visibility= View.INVISIBLE
+        questionText.visibility= View.INVISIBLE
         val intent=Intent(this,ProductListActivity::class.java)
         startActivity(intent)
     }
-
 }

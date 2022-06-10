@@ -38,7 +38,7 @@ class ProductListActivity : AppCompatActivity() {
 
         var helper=DBHelper(applicationContext)
         var db=helper.readableDatabase
-        var query2=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME LIKE '"+findViewById<EditText>(R.id.editTextFilterName).text+"'",null)
+        var query2=db.rawQuery("SELECT * FROM PRODUCTS WHERE NAME LIKE '%"+findViewById<EditText>(R.id.editTextFilterName).text+"%'",null)
 
         while (query2.moveToNext()){
             mutableListProducts.add("Product name: "+query2.getString(2)+"; Price: "+query2.getString(3))
